@@ -29,7 +29,7 @@ Widget cSelectedWidget(
                     color: counted == listChildText[counted]
                         ? Appstore.colorWhite
                         : Appstore.colorDark1,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     fontFamily: Appstore.appFont,
                     fontSize: 16),
               ),

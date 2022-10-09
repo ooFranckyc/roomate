@@ -21,9 +21,9 @@ class _PopularCitieCardState extends State<PopularCitieCard> {
       alignment: Alignment.center,
       margin: const EdgeInsets.only(right: 8),
       decoration: BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(widget.imgCenteredIndex[widget.index])),
+          // image: DecorationImage(
+          //     fit: BoxFit.cover,
+          //     image: NetworkImage(widget.imgCenteredIndex[widget.index])),
           color: Appstore.colorDark3,
           borderRadius: BorderRadius.circular(10)),
       child: Text(

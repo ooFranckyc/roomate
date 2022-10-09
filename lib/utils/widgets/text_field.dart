@@ -148,7 +148,7 @@ class _CTextFieldState extends State<CTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 3),
       child: SizedBox(
         width: double.infinity,
         child: Column(
@@ -163,7 +163,9 @@ class _CTextFieldState extends State<CTextField> {
                   fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            widget.roomTextFormField
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 3),
+              child: widget.roomTextFormField)
           ],
         ),
       ),

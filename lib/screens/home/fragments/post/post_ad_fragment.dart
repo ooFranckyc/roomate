@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:roomate/screens/home/fragments/post/screens/roommate_screen.dart';
+import 'package:roomate/screens/home/fragments/post/screens/rooms_screen.dart';
 import 'package:roomate/utils/animations/transition.dart';
 import 'package:roomate/utils/appstore.dart';
 
@@ -69,7 +70,7 @@ class _PostAdFragmentState extends State<PostAdFragment> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context, SlideTransitionRightToLeft(const RoommateScreen()));
+                        Navigator.push(context, SlideTransitionRightToLeft(const RoomScreen()));
                       },
                       child: layoutPost(
                           title: "Room", icon: CupertinoIcons.car_detailed),

@@ -51,9 +51,9 @@ class _ProfileCardRoommateState extends State<ProfileCardRoommate> {
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 color: Appstore.colorDark3,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(widget.img)),
+                // image: DecorationImage(
+                //   fit: BoxFit.cover,
+                //   image: NetworkImage(widget.img)),
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20))),

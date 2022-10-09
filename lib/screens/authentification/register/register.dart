@@ -33,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Appstore.colorWhite,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

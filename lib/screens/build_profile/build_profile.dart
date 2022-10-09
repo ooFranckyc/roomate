@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
+import 'package:roomate/screens/complete_bp/complete_bp.dart';
 import 'package:roomate/utils/appstore.dart';
 import 'package:roomate/utils/widgets/cseleted.dart';
 import 'package:roomate/utils/widgets/ct_stepper.dart';
@@ -35,10 +36,14 @@ class _BuildProfileScreenState extends State<BuildProfileScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 45, left: 5),
+          padding: const EdgeInsets.only(top: 45, left: 0),
           child: CustomStepper(
-              listAppbarTitle: listAppbarTitle,
-              listBuildBody: buildProfileAssembly),
+            listAppbarTitle: listAppbarTitle,
+            listBuildBody: buildProfileAssembly,
+            textOnFinished: 'Process to home page',
+            textOnProcess: 'Next',
+            targetWidgetOnFinished: const CompleteBuildProfile(),
+          ),
         ),
       ),
     );
@@ -63,19 +68,19 @@ class _DetailsBuildProfileState extends State<DetailsBuildProfile> {
     List<VoidCallback> call = [
       () {
         setState(() {
-          currentIndex =0;
+          currentIndex = 0;
           log("current index value ($currentIndex)");
         });
       },
       () {
         setState(() {
-          currentIndex =1;
+          currentIndex = 1;
           log("current index value ($currentIndex)");
         });
       },
       () {
         setState(() {
-          currentIndex =2;
+          currentIndex = 2;
           log("current index value ($currentIndex)");
         });
       }
@@ -184,7 +189,7 @@ class _BalancyBuildProfileState extends State<BalancyBuildProfile> {
     return Container(
       color: Appstore.colorWhite,
       child: Padding(
-        padding: const EdgeInsets.only(top: 25),
+        padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
         child: Column(
           children: [
             // selected country
@@ -272,7 +277,7 @@ class _LocationBuildProfileState extends State<LocationBuildProfile> {
     return Container(
       color: Appstore.colorWhite,
       child: Padding(
-        padding: const EdgeInsets.only(top: 25),
+        padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
         child: Column(
           children: [
             CTextField(
@@ -314,7 +319,7 @@ class _FlagBuildProfileState extends State<FlagBuildProfile> {
           Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(top: 25),
+              padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -334,7 +339,8 @@ class _FlagBuildProfileState extends State<FlagBuildProfile> {
                         width: 120,
                         height: 120,
                         decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.grey.shade400),
+                            shape: BoxShape.circle,
+                            color: Colors.grey.shade400),
                       ),
                       Bounce(
                         duration: const Duration(milliseconds: 180),
@@ -418,7 +424,8 @@ class _FlagBuildProfileState extends State<FlagBuildProfile> {
                 const SizedBox(height: 5),
                 // multiline text edit field
                 RoomTextFormFieldMultiline(
-                    controller: bioEditController, hintText: "Tell us about your")
+                    controller: bioEditController,
+                    hintText: "Tell us about your")
               ],
             ),
           )
