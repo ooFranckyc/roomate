@@ -48,9 +48,9 @@ class _RecommandedCardState extends State<RecommandedCard> {
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 color: Appstore.colorDark2.withOpacity(.40),
-                // image: DecorationImage(
-                //   fit: BoxFit.cover,
-                //   image: NetworkImage(widget.img)),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(widget.img)),
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20))),

@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:roomate/screens/home/fragments/home/widgets/pcc.dart';
 import 'package:roomate/screens/home/fragments/home/widgets/profile_card_r.dart';
 import 'package:roomate/screens/home/fragments/home/widgets/rcav.dart';
+import 'package:roomate/screens/notification/notification.dart';
+import 'package:roomate/utils/animations/transition.dart';
 import 'package:roomate/utils/appstore.dart';
 import 'package:roomate/utils/widgets/searchbar.dart';
 
@@ -314,6 +317,7 @@ class _HomeFragmentState extends State<HomeFragment> {
                 child: CupertinoSwitch(
                     value: notificationEnabled,
                     activeColor: Appstore.colorPLighter,
+                    trackColor: const Color(0xffE5E5E5),
                     onChanged: (vl) {
                       setState(() {
                         notificationEnabled = !notificationEnabled;
@@ -321,10 +325,17 @@ class _HomeFragmentState extends State<HomeFragment> {
                     }),
               ),
               const SizedBox(width: 5),
-              Icon(
-                CupertinoIcons.bell,
-                size: 27,
-                color: Appstore.colorDark1,
+              Bounce(
+                duration: const Duration(milliseconds: 180),
+                onPressed: () {
+                  Navigator.push(context,
+                      SlideTransitionRightToLeft(const NotificationScreen()));
+                },
+                child: Icon(
+                  CupertinoIcons.bell,
+                  size: 27,
+                  color: Appstore.colorDark1,
+                ),
               )
             ],
           )

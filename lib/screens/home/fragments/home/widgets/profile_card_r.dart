@@ -32,7 +32,7 @@ class _ProfileCardRoommateState extends State<ProfileCardRoommate> {
     return Container(
       width: 250,
       padding: const EdgeInsets.only(bottom: 15),
-      margin: const EdgeInsets.only(right: 15, bottom: 15),
+      margin: const EdgeInsets.only(right: 5, left: 5, bottom: 15),
       decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -51,9 +51,9 @@ class _ProfileCardRoommateState extends State<ProfileCardRoommate> {
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 color: Appstore.colorDark3,
-                // image: DecorationImage(
-                //   fit: BoxFit.cover,
-                //   image: NetworkImage(widget.img)),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(widget.img)),
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20))),

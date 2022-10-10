@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: fragmentListPage[currentIndex],
       bottomNavigationBar: Container(
         height: 65,
-        color: Appstore.colorWhite,
+        color: const Color(0xffE5E5E5),
         alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Row(

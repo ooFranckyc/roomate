@@ -8,6 +8,7 @@ import 'package:roomate/utils/appstore.dart';
 class MessageChatingLayout extends StatefulWidget {
   final bool hasReaded;
   final int missingMessage;
+  final String imgProfile;
   final String username;
   final String handleMessage;
   final String time;
@@ -15,6 +16,7 @@ class MessageChatingLayout extends StatefulWidget {
       {super.key,
       required this.hasReaded,
       required this.missingMessage,
+      required this.imgProfile,
       required this.username,
       required this.handleMessage,
       required this.time});
@@ -32,6 +34,7 @@ class _MessageChatingLayoutState extends State<MessageChatingLayout> {
         Navigator.push(
             context,
             SlideTransitionRightToLeft(MessageScreen(
+              imgProfile: widget.imgProfile,
               username: widget.username,
               isOnline: true,
             )));
@@ -50,9 +53,9 @@ class _MessageChatingLayoutState extends State<MessageChatingLayout> {
                     width: 65,
                     height: 65,
                     decoration: BoxDecoration(
-                        // image: const DecorationImage(
-                        //     fit: BoxFit.cover,
-                        //     image: AssetImage('ressources/images/user.png')),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(widget.imgProfile)),
                         color: Colors.grey.shade200,
                         shape: BoxShape.circle),
                   ),
@@ -138,12 +141,14 @@ class _MessageChatingLayoutState extends State<MessageChatingLayout> {
 
 class MessageCallLayout extends StatefulWidget {
   final bool hasReaded;
+  final String imgProfile;
   final String username;
   final String handleMessage;
   final String tagIdCall;
   const MessageCallLayout(
       {super.key,
       required this.hasReaded,
+      required this.imgProfile,
       required this.username,
       required this.handleMessage,
       required this.tagIdCall});
@@ -168,7 +173,11 @@ class _MessageCallLayoutState extends State<MessageCallLayout> {
                   width: 65,
                   height: 65,
                   decoration: BoxDecoration(
-                      color: Colors.grey.shade200, shape: BoxShape.circle),
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(widget.imgProfile)),
+                      color: Colors.grey.shade200,
+                      shape: BoxShape.circle),
                 ),
                 const SizedBox(width: 5),
                 Column(
@@ -232,9 +241,14 @@ class _MessageCallLayoutState extends State<MessageCallLayout> {
 
 // ignore: must_be_immutable
 class MessageScreen extends StatefulWidget {
+  late String imgProfile;
   late String username;
   final bool isOnline;
-  MessageScreen({super.key, required this.username, required this.isOnline});
+  MessageScreen(
+      {super.key,
+      required this.imgProfile,
+      required this.username,
+      required this.isOnline});
 
   @override
   State<MessageScreen> createState() => _MessageScreenState();
@@ -281,7 +295,11 @@ class _MessageScreenState extends State<MessageScreen> {
               height: 50,
               margin: const EdgeInsets.only(right: 8),
               decoration: BoxDecoration(
-                  shape: BoxShape.circle, color: Appstore.colorWhite),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(widget.imgProfile)),
+                  shape: BoxShape.circle,
+                  color: Appstore.colorWhite),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -376,7 +394,9 @@ class _MessageScreenState extends State<MessageScreen> {
                   decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(30),
-                      border: Border.all(width: 2, color: Appstore.colorDark2.withOpacity(.70))),
+                      border: Border.all(
+                          width: 2,
+                          color: Appstore.colorDark2.withOpacity(.70))),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Row(
@@ -433,12 +453,11 @@ class _MessageScreenState extends State<MessageScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 25),
               child: Icon(
-                  Icons.mic,
-                  color: Appstore.colorPLighter,
-                  size: 30,
-                ),
+                Icons.mic,
+                color: Appstore.colorPLighter,
+                size: 30,
+              ),
             ),
-            
           ],
         ),
       ),

@@ -163,7 +163,6 @@ class _RoomSavedFragmentState extends State<RoomSavedFragment> {
         children: [
           Container(
             width: double.infinity,
-            //height: 250,
             padding: const EdgeInsets.only(bottom: 25),
             decoration: BoxDecoration(
                 color: Appstore.colorWhite,
@@ -183,6 +182,10 @@ class _RoomSavedFragmentState extends State<RoomSavedFragment> {
                   height: 180,
                   decoration: BoxDecoration(
                       color: Appstore.colorDark3,
+                      image: const DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=400")),
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10))),
@@ -378,8 +381,8 @@ class _RoommateSavedFragmentState extends State<RoommateSavedFragment> {
               Expanded(
                 child: ProfileCardRoommate(
                     img:
-                        "https://images.pexels.com/photos/1181391/pexels-photo-1181391.jpeg?auto=compress&cs=tinysrgb&w=600",
-                    roommateName: "Justin Belge",
+                        "https://images.pexels.com/photos/1898555/pexels-photo-1898555.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    roommateName: "Justina Belge",
                     roommateYear: 36,
                     roommateCountry: "Cameroon",
                     roommateSex: "Male",
@@ -390,11 +393,11 @@ class _RoommateSavedFragmentState extends State<RoommateSavedFragment> {
               Expanded(
                 child: ProfileCardRoommate(
                     img:
-                        "https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60",
+                        "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=400",
                     roommateName: "Daniela Bundy",
                     roommateYear: 20,
                     roommateCountry: "France",
-                    roommateSex: "Male",
+                    roommateSex: "Female",
                     roommateStatus: "Student",
                     roommateReligion: "Christian",
                     budgetOfRoommate: 18.340),
