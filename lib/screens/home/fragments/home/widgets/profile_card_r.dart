@@ -37,9 +37,9 @@ class _ProfileCardRoommateState extends State<ProfileCardRoommate> {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                color: Appstore.colorDark1.withOpacity(.50),
-                spreadRadius: .20,
-                blurRadius: .20)
+                color: Appstore.colorDark2.withOpacity(.80),
+                spreadRadius: .80,
+                blurRadius: 10)
           ],
           borderRadius: BorderRadius.circular(15)),
       child: Column(
@@ -69,13 +69,17 @@ class _ProfileCardRoommateState extends State<ProfileCardRoommate> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     // name
-                    Text(
-                      "${widget.roommateName}, ${widget.roommateYear}yrs",
-                      style: TextStyle(
-                          color: Appstore.colorDark1.withOpacity(.80),
-                          fontSize: 16,
-                          fontFamily: Appstore.appFont,
-                          fontWeight: FontWeight.w600),
+                    Expanded(
+                      child: Text(
+                        "${widget.roommateName}, ${widget.roommateYear}yrs",
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Appstore.colorDark1.withOpacity(.80),
+                            fontSize: 16,
+                            fontFamily: Appstore.appFont,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                     Icon(
                       CupertinoIcons.checkmark_seal,
@@ -84,6 +88,7 @@ class _ProfileCardRoommateState extends State<ProfileCardRoommate> {
                     )
                   ],
                 ),
+                const SizedBox(height: 5),
                 // description
                 Text(
                   "${widget.roommateCountry}, Immediate",

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:roomate/screens/home/fragments/home/widgets/pcc.dart';
 import 'package:roomate/screens/home/fragments/home/widgets/profile_card_r.dart';
 import 'package:roomate/screens/home/fragments/home/widgets/rcav.dart';
@@ -19,11 +20,20 @@ class _HomeFragmentState extends State<HomeFragment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 1,
+          systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Appstore.colorWhite,
+              statusBarBrightness: Brightness.dark,
+              statusBarIconBrightness: Brightness.dark),
+          backgroundColor: Appstore.colorWhite,
+          elevation: 0,
+        ),
         backgroundColor: Appstore.colorWhite,
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
-            padding: const EdgeInsets.only(top: 40, left: 5),
+            padding: const EdgeInsets.only(top: 5, left: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -118,7 +128,7 @@ class _HomeFragmentState extends State<HomeFragment> {
               textAction: "View more"),
           const SizedBox(height: 20),
           SizedBox(
-            height: 395,
+            height: 400,
             child: ListView(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
@@ -268,7 +278,7 @@ class _HomeFragmentState extends State<HomeFragment> {
                 decoration: BoxDecoration(
                     image: const DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage('ressources/images/me.jpg')),
+                        image: AssetImage('ressources/images/user.png')),
                     color: Appstore.colorDark3,
                     shape: BoxShape.circle),
               ),

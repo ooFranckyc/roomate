@@ -27,16 +27,16 @@ class _RecommandedCardState extends State<RecommandedCard> {
   Widget build(BuildContext context) {
     return Container(
       width: 250,
-      height: 390,
+      height: 400,
       padding: const EdgeInsets.only(bottom: 15),
-      margin: const EdgeInsets.only(right: 15, bottom: 15),
+      margin: const EdgeInsets.only(right: 15, bottom: 15, top: 10),
       decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                color: Appstore.colorDark1.withOpacity(.20),
-                spreadRadius: .15,
-                blurRadius: .15)
+                color: Appstore.colorDark2.withOpacity(.80),
+                spreadRadius: .80,
+                blurRadius: 8)
           ],
           borderRadius: BorderRadius.circular(15)),
       child: Column(
@@ -64,7 +64,7 @@ class _RecommandedCardState extends State<RecommandedCard> {
                 // status of free apartment
                 Container(
                   width: 100,
-                  height: 50,
+                  height: 45,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: Appstore.colorPSubtle.withOpacity(.60),

@@ -30,7 +30,7 @@ class Appstore {
   static Color colorSuccess = const Color(0xff01C114);
   static Color colorError = const Color(0xffD80B0B);
 
-  static String appFont = 'Roboto';
+  static String appFont = 'Lato';
 
   // icons (iconography)
   static String iconContact = "res/icons/";

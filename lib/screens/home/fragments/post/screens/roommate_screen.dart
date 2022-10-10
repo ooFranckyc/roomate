@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:roomate/utils/appstore.dart';
 import 'package:roomate/utils/widgets/button.dart';
@@ -12,43 +13,49 @@ class RoommateScreen extends StatefulWidget {
 }
 
 class _RoommateScreenState extends State<RoommateScreen> {
-  int currentIndex = 3;
-  int currentIndexRelg = 4;
-  int currentIndexSt = 4;
+  int currentIndex = 3, currentIndexRelg = 4, currentIndexSt = 4;
   bool loading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leadingWidth: 45,
-        leading: Bounce(
-          duration: const Duration(milliseconds: 180),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Container(
-            width: 15,
-            height: 15,
-            margin: const EdgeInsets.only(left: 5),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                color: Appstore.colorPLighter, shape: BoxShape.circle),
-            child: Icon(
-              CupertinoIcons.arrow_left,
-              color: Appstore.colorWhite,
-              size: 20,
+        title: Row(
+          children: [
+            Bounce(
+              duration: const Duration(milliseconds: 180),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: 35,
+                height: 35,
+                margin: const EdgeInsets.only(left: 5),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: Appstore.colorPLighter, shape: BoxShape.circle),
+                child: Icon(
+                  CupertinoIcons.arrow_left,
+                  color: Appstore.colorWhite,
+                  size: 20,
+                ),
+              ),
             ),
-          ),
+            const SizedBox(width: 10),
+            Text(
+              "Set your preferences",
+              style: TextStyle(
+                  color: Appstore.colorDark1,
+                  fontSize: 20,
+                  fontFamily: Appstore.appFont,
+                  fontWeight: FontWeight.w600),
+            ),
+          ],
         ),
-        title: Text(
-          "Set your preferences",
-          style: TextStyle(
-              color: Appstore.colorDark1,
-              fontSize: 20,
-              fontFamily: Appstore.appFont,
-              fontWeight: FontWeight.w600),
-        ),
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Appstore.colorWhite,
+            statusBarBrightness: Brightness.dark,
+            statusBarIconBrightness: Brightness.dark),
         backgroundColor: Appstore.colorWhite,
         elevation: 0,
       ),
@@ -77,7 +84,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
             const SizedBox(height: 50),
             // post live widget
             Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
+              padding: const EdgeInsets.only(left: 10, right: 15),
               child: SizedBox(
                 width: double.infinity,
                 child: Column(
@@ -86,10 +93,10 @@ class _RoommateScreenState extends State<RoommateScreen> {
                     Text(
                       "Where do you want to live?",
                       style: TextStyle(
-                          color: Appstore.colorDark1,
-                          fontSize: 15,
+                          color: Appstore.colorDark1.withOpacity(.80),
+                          fontSize: 16,
                           fontFamily: Appstore.appFont,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(height: 8),
                     Container(
@@ -125,7 +132,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                               ),
                               Icon(
                                 Icons.location_on_outlined,
-                                color: Appstore.colorDark1,
+                                color: Appstore.colorDark1.withOpacity(.80),
                                 size: 25,
                               )
                             ],
@@ -135,10 +142,10 @@ class _RoommateScreenState extends State<RoommateScreen> {
                     Text(
                       "Who Would You Like To Stay With?",
                       style: TextStyle(
-                          color: Appstore.colorDark1,
+                          color: Appstore.colorDark1.withOpacity(.80),
                           fontSize: 15,
                           fontFamily: Appstore.appFont,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(height: 15),
                     Padding(
@@ -173,7 +180,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                           color: currentIndex == 0
                                               ? Appstore.colorWhite
                                               : Appstore.colorDark1,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                           fontFamily: Appstore.appFont,
                                           fontSize: 16),
                                     ),
@@ -201,7 +208,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                           color: currentIndex == 1
                                               ? Appstore.colorWhite
                                               : Appstore.colorDark1,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                           fontFamily: Appstore.appFont,
                                           fontSize: 16),
                                     ),
@@ -229,7 +236,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                           color: currentIndex == 2
                                               ? Appstore.colorWhite
                                               : Appstore.colorDark1,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                           fontFamily: Appstore.appFont,
                                           fontSize: 16),
                                     ),
@@ -256,7 +263,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                   color: Appstore.colorDark1,
                                   fontSize: 15,
                                   fontFamily: Appstore.appFont,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.w500),
                             ),
                             const SizedBox(height: 10),
                             Row(
@@ -284,7 +291,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                           color: currentIndexRelg == 0
                                               ? Appstore.colorWhite
                                               : Appstore.colorDark1,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                           fontFamily: Appstore.appFont,
                                           fontSize: 16),
                                     ),
@@ -312,7 +319,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                           color: currentIndexRelg == 1
                                               ? Appstore.colorWhite
                                               : Appstore.colorDark1,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                           fontFamily: Appstore.appFont,
                                           fontSize: 16),
                                     ),
@@ -340,7 +347,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                           color: currentIndexRelg == 2
                                               ? Appstore.colorWhite
                                               : Appstore.colorDark1,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                           fontFamily: Appstore.appFont,
                                           fontSize: 16),
                                     ),
@@ -367,7 +374,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                   color: Appstore.colorDark1,
                                   fontSize: 15,
                                   fontFamily: Appstore.appFont,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.w500),
                             ),
                             const SizedBox(height: 10),
                             Row(
@@ -395,7 +402,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                           color: currentIndexSt == 0
                                               ? Appstore.colorWhite
                                               : Appstore.colorDark1,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                           fontFamily: Appstore.appFont,
                                           fontSize: 16),
                                     ),
@@ -423,7 +430,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                           color: currentIndexSt == 1
                                               ? Appstore.colorWhite
                                               : Appstore.colorDark1,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                           fontFamily: Appstore.appFont,
                                           fontSize: 16),
                                     ),
@@ -451,7 +458,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                           color: currentIndexSt == 2
                                               ? Appstore.colorWhite
                                               : Appstore.colorDark1,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                           fontFamily: Appstore.appFont,
                                           fontSize: 16),
                                     ),
@@ -478,7 +485,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                   color: Appstore.colorDark1,
                                   fontSize: 15,
                                   fontFamily: Appstore.appFont,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.w500),
                             ),
                             const SizedBox(height: 10),
                             CheckboxListTile(
@@ -488,7 +495,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                   style: TextStyle(
                                       color: Appstore.colorDark1,
                                       fontSize: 15,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
                                       fontFamily: Appstore.appFont),
                                 ),
                                 controlAffinity:
@@ -501,7 +508,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                   style: TextStyle(
                                       color: Appstore.colorDark1,
                                       fontSize: 15,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
                                       fontFamily: Appstore.appFont),
                                 ),
                                 controlAffinity:
@@ -514,7 +521,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                   style: TextStyle(
                                       color: Appstore.colorDark1,
                                       fontSize: 15,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
                                       fontFamily: Appstore.appFont),
                                 ),
                                 controlAffinity:
@@ -527,7 +534,7 @@ class _RoommateScreenState extends State<RoommateScreen> {
                                   style: TextStyle(
                                       color: Appstore.colorDark1,
                                       fontSize: 15,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
                                       fontFamily: Appstore.appFont),
                                 ),
                                 controlAffinity:

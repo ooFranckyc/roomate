@@ -84,15 +84,6 @@ flutter:
         - asset: ressources/fonts/Lato-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-    - family: Poppins
-      fonts:
-        - asset: ressources/fonts/Poppins-Regular.ttf
-        - asset: ressources/fonts/Poppins-Bold.ttf
-    - family: Roboto
-      fonts:
-        - asset: ressources/fonts/Roboto-Regular.ttf
-        - asset: ressources/fonts/Roboto-Bold.ttf
-  #         weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:roomate/screens/home/home.dart';
 import 'package:roomate/utils/animations/transition.dart';
@@ -35,17 +36,24 @@ class _RoomScreenState extends State<RoomScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Appstore.colorWhite,
+            statusBarBrightness: Brightness.dark,
+            statusBarIconBrightness: Brightness.dark),
         backgroundColor: Appstore.colorWhite,
-        body: SingleChildScrollView(
-          child: CustomStepper(
-            listAppbarTitle: listAppbarTitle,
-            listBuildBody: listBuildBody,
-            textOnFinished: 'Publish Listing',
-            textOnProcess: 'Continue',
-            targetWidgetOnFinished: const CongragListingScreen(),
-          ),
+        elevation: 0,
+        toolbarHeight: 1,
+      ),
+      backgroundColor: Appstore.colorWhite,
+      body: SingleChildScrollView(
+        child: CustomStepper(
+          listAppbarTitle: listAppbarTitle,
+          listBuildBody: listBuildBody,
+          textOnFinished: 'Publish Listing',
+          textOnProcess: 'Continue',
+          targetWidgetOnFinished: const CongragListingScreen(),
         ),
       ),
     );
@@ -501,6 +509,15 @@ class _CongragListingScreenState extends State<CongragListingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 1,
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Appstore.colorWhite,
+            statusBarBrightness: Brightness.dark,
+            statusBarIconBrightness: Brightness.dark),
+        backgroundColor: Appstore.colorWhite,
+        elevation: 0,
+      ),
       backgroundColor: Appstore.colorWhite,
       body: Center(
         child: Column(
@@ -534,17 +551,18 @@ class _CongragListingScreenState extends State<CongragListingScreen> {
               child: Bounce(
                 duration: const Duration(milliseconds: 180),
                 onPressed: () {
-                  Navigator.pushReplacement(context, SlideTransitionLeftToRight(const HomeScreen()));
+                  Navigator.pushReplacement(
+                      context, SlideTransitionLeftToRight(const HomeScreen()));
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                backgroundColor: Appstore.colorPLighter,
-                                content: Text(
-                                  "We have take you command with successffully",
-                                  style: TextStyle(
-                                      color: Appstore.colorWhite,
-                                      fontFamily: Appstore.appFont,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500),
-                                )));
+                      backgroundColor: Appstore.colorPLighter,
+                      content: Text(
+                        "We have take you command with successffully",
+                        style: TextStyle(
+                            color: Appstore.colorWhite,
+                            fontFamily: Appstore.appFont,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      )));
                 },
                 child: PrimaryButton(
                     color: Appstore.colorPLighter,

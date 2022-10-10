@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:roomate/screens/home/fragments/post/screens/roommate_screen.dart';
 import 'package:roomate/screens/home/fragments/post/screens/rooms_screen.dart';
@@ -19,35 +20,44 @@ class _PostAdFragmentState extends State<PostAdFragment> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          leadingWidth: 45,
-          leading: Bounce(
-            duration: const Duration(milliseconds: 180),
-            onPressed: () {
-              //
-            },
-            child: Container(
-              width: 15,
-              height: 15,
-              margin: const EdgeInsets.only(left: 5),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: Appstore.colorPLighter, shape: BoxShape.circle),
-              child: Icon(
-                CupertinoIcons.arrow_left,
-                color: Appstore.colorWhite,
-                size: 20,
+          toolbarHeight: 70,
+          title: Row(
+            children: [
+              Bounce(
+                duration: const Duration(milliseconds: 180),
+                onPressed: () {
+                  //
+                },
+                child: Container(
+                  width: 35,
+                  height: 35,
+                  margin: const EdgeInsets.only(left: 5, right: 10),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Appstore.colorWhite, shape: BoxShape.circle),
+                  child: Icon(
+                    CupertinoIcons.arrow_left,
+                    color: Appstore.colorPLighter,
+                    size: 20,
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(height: 10),
+              Text(
+                "Post Ad",
+                style: TextStyle(
+                    color: Appstore.colorWhite,
+                    fontSize: 20,
+                    fontFamily: Appstore.appFont,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
           ),
-          title: Text(
-            "Post Ad",
-            style: TextStyle(
-                color: Appstore.colorDark1,
-                fontSize: 20,
-                fontFamily: Appstore.appFont,
-                fontWeight: FontWeight.w600),
-          ),
-          backgroundColor: Appstore.colorWhite,
+          systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Appstore.colorPLighter,
+              statusBarBrightness: Brightness.light,
+              statusBarIconBrightness: Brightness.light),
+          backgroundColor: Appstore.colorPLighter,
           elevation: 0,
         ),
         backgroundColor: Appstore.colorWhite,
@@ -61,7 +71,7 @@ class _PostAdFragmentState extends State<PostAdFragment> {
                   "What would you like to post?",
                   style: TextStyle(
                       color: Appstore.colorDark1.withOpacity(.80),
-                      fontSize: 20,
+                      fontSize: 18,
                       fontFamily: Appstore.appFont,
                       fontWeight: FontWeight.w600),
                 ),
@@ -70,7 +80,8 @@ class _PostAdFragmentState extends State<PostAdFragment> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context, SlideTransitionRightToLeft(const RoomScreen()));
+                        Navigator.push(context,
+                            SlideTransitionRightToLeft(const RoomScreen()));
                       },
                       child: layoutPost(
                           title: "Room", icon: CupertinoIcons.car_detailed),
@@ -78,7 +89,8 @@ class _PostAdFragmentState extends State<PostAdFragment> {
                     const SizedBox(height: 10),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context, SlideTransitionRightToLeft(const RoommateScreen()));
+                        Navigator.push(context,
+                            SlideTransitionRightToLeft(const RoommateScreen()));
                       },
                       child: layoutPost(
                           title: "Roommate", icon: CupertinoIcons.person_2),
@@ -110,12 +122,13 @@ class _PostAdFragmentState extends State<PostAdFragment> {
               Icon(
                 icon,
                 color: Appstore.colorPLighter,
+                size: 25,
               ),
               const SizedBox(width: 5),
               Text(
                 title,
                 style: TextStyle(
-                    color: Appstore.colorDark1,
+                    color: Appstore.colorDark1.withOpacity(.80),
                     fontFamily: Appstore.appFont,
                     fontWeight: FontWeight.w500,
                     fontSize: 16),
@@ -124,7 +137,8 @@ class _PostAdFragmentState extends State<PostAdFragment> {
           ),
           Icon(
             Icons.arrow_forward_ios_rounded,
-            color: Appstore.colorDark1,
+            color: Appstore.colorDark1.withOpacity(.80),
+            size: 20,
           ),
         ],
       ),

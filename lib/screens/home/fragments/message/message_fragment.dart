@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:roomate/screens/home/fragments/message/message_layout.dart';
 import 'package:roomate/utils/appstore.dart';
@@ -25,9 +26,14 @@ class _MessageFragmentState extends State<MessageFragment>
           backgroundColor: Appstore.colorWhite,
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Appstore.colorWhite,
+            // backgroundColor: Appstore.colorWhite,
+            systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarColor: Appstore.colorPLighter,
+                statusBarBrightness: Brightness.light,
+                statusBarIconBrightness: Brightness.light),
+            backgroundColor: Appstore.colorPLighter,
             elevation: 0,
-            toolbarHeight: 45,
+            toolbarHeight: 40,
             title: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
@@ -38,15 +44,15 @@ class _MessageFragmentState extends State<MessageFragment>
                     Navigator.pop(context);
                   },
                   child: Container(
-                    width: 40,
-                    height: 40,
+                    width: 35,
+                    height: 35,
                     margin: const EdgeInsets.only(right: 10),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: Appstore.colorPLighter, shape: BoxShape.circle),
+                        color: Appstore.colorWhite, shape: BoxShape.circle),
                     child: Icon(
                       CupertinoIcons.arrow_left,
-                      color: Appstore.colorWhite,
+                      color: Appstore.colorPLighter,
                       size: 20,
                     ),
                   ),
@@ -55,9 +61,9 @@ class _MessageFragmentState extends State<MessageFragment>
                 Text(
                   "Messages",
                   style: TextStyle(
-                      color: Appstore.colorPLighter,
+                      color: Appstore.colorWhite,
                       fontFamily: Appstore.appFont,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                       fontSize: 20),
                 )
               ],
@@ -66,59 +72,58 @@ class _MessageFragmentState extends State<MessageFragment>
               Bounce(
                 duration: const Duration(milliseconds: 180),
                 onPressed: () {
-                  // search code
+                  // search media
                 },
                 child: Container(
-                  width: 40,
-                  height: 40,
+                  width: 35,
+                  height: 35,
                   margin: const EdgeInsets.only(right: 10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: Appstore.colorPLighter, shape: BoxShape.circle),
+                      color: Appstore.colorWhite, shape: BoxShape.circle),
                   child: Icon(
                     CupertinoIcons.search,
-                    color: Appstore.colorWhite,
+                    color: Appstore.colorPLighter,
                     size: 20,
                   ),
                 ),
               ),
             ],
             bottom: TabBar(
-                indicatorColor: Appstore.colorPDarker,
+                indicatorColor: Appstore.colorWhite,
                 indicatorSize: TabBarIndicatorSize.tab,
-                labelColor: Appstore.colorDark1,
+                labelColor: Appstore.colorWhite,
                 labelStyle: TextStyle(
-                    color: Appstore.colorPLighter,
+                    color: Appstore.colorWhite,
                     fontSize: 15,
                     fontFamily: Appstore.appFont,
                     fontWeight: FontWeight.w600),
                 unselectedLabelStyle: TextStyle(
-                    color: Appstore.colorDark1,
+                    color: Appstore.colorWhite,
                     fontSize: 15,
                     fontFamily: Appstore.appFont,
                     fontWeight: FontWeight.w500),
                 tabs: [
                   Tab(
-                    text: 'Chats',
+                    text: 'Chats.',
                     icon: Container(
                       width: 20,
                       height: 20,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: Appstore.colorPLighter,
-                          shape: BoxShape.circle),
+                          color: Appstore.colorSSubtle, shape: BoxShape.circle),
                       child: Text(
                         3.toString(),
                         style: TextStyle(
                             fontSize: 14,
                             fontFamily: Appstore.appFont,
                             fontWeight: FontWeight.bold,
-                            color: Appstore.colorWhite),
+                            color: Appstore.colorDark1),
                       ),
                     ),
                   ),
                   const Tab(
-                    text: 'Calls',
+                    text: 'Calls.',
                   ),
                 ]),
           ),

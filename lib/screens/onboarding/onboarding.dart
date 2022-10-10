@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:roomate/screens/authentification/register/register.dart';
+import 'package:roomate/screens/home/home.dart';
 import 'package:roomate/utils/animations/transition.dart';
 import 'package:roomate/utils/appstore.dart';
 
@@ -119,7 +120,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             duration: const Duration(milliseconds: 180),
             onPressed: () {
               Navigator.pushReplacement(
-                  context, SlideTransitionRightToLeft(const RegisterScreen()));
+                  context, SlideTransitionRightToLeft(const HomeScreen()));
             },
             child: Text(
               Appstore.skipButtonText,
